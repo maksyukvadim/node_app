@@ -10,7 +10,7 @@ var app = express();
 app.use(bodyParser.json());
 
 app.get('/notes', function (req, res) {
-    res.send('11111');
+    res.send('2222');
 });
 
 app.post('/notes', function (req, res) {

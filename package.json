@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch":"babel server -d dist_serv --watch",
+    "watch":"babel server -d dist_serv && nodemon dist_serv/index.js | babel server -d dist_serv --watch",
     "dev": "nodemon dist_serv/index.js"
   },
   "author": "",
