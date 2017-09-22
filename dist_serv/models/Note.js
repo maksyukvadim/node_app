@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
+'use strict';
 
-const Shceme = mongoose.Schema;
+var mongoose = require('mongoose');
 
-const NoteShema = new Shceme({
+var Shceme = mongoose.Schema;
+
+var NoteShema = new Shceme({
     title: { type: String },
     text: { type: String, required: true },
     color: { type: String },
     createdAt: { type: Date }
 });
 
-const Note = mongoose.model('Note', NoteShema);
+var Note = mongoose.model('Note', NoteShema);

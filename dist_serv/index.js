@@ -1,22 +1,26 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-import { setUpConnection } from './utils/DataBaseUtils';
-const app = express();
+'use strict';
+
+var _DataBaseUtils = require('./utils/DataBaseUtils');
+
+var express = require('express');
+var bodyParser = require('body-parser');
+
+var app = express();
 
 app.use(bodyParser.json());
 
-app.get('/notes', (req, res) => {
+app.get('/notes', function (req, res) {
+    res.send('11111');
+});
+
+app.post('/notes', function (req, res) {
     res.send('lolKEK');
 });
 
-app.post('/notes', (req, res) => {
+app.delete('/notes/:id', function (req, res) {
     res.send('lolKEK');
 });
 
-app.delete('/notes/:id', (req, res) => {
-    res.send('lolKEK');
-});
-
-const server = app.listen(8080, () => {
+var server = app.listen(8080, function () {
     console.log('run server');
 });

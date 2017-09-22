@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.json())
 
 app.get('/notes', (req, res) => {
-    res.send('lolKEK'); 
+    res.send('11111'); 
 });
 
 app.post('/notes', (req, res) => {

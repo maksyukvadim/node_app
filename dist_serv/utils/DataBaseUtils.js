@@ -1,20 +1,32 @@
-const mongoose = require('mongoose');
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.setUpConnection = setUpConnection;
+exports.listNotes = listNotes;
+exports.createNote = createNote;
+exports.deleteNote = deleteNote;
+var mongoose = require('mongoose');
 
 require('../models/Note');
 
-const Note = mongoose.model('Note');
+var Note = mongoose.model('Note');
 
-export function setUpConnection() {
-    mongoose.connect(`mongodb://localhost/notes`);
+function setUpConnection() {
+    mongoose.connect('mongodb://localhost/notes');
 }
 
-export function listNotes() {
+function listNotes() {
     return Note.find();
 }
 
-export function createNote(data) {
-    const { title, text, color } = data;
-    const note = new Note({
+function createNote(data) {
+    var title = data.title,
+        text = data.text,
+        color = data.color;
+
+    var note = new Note({
         title: title,
         text: text,
         color: color,
@@ -24,6 +36,6 @@ export function createNote(data) {
     return Note.save();
 }
 
-export function deleteNote(id) {
+function deleteNote(id) {
     return Note.findById(id).remove();
 }
