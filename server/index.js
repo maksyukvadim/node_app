@@ -1,22 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-import { setUpConnection } from './utils/DataBaseUtils';
+import * as db from './utils/DataBaseUtils';
+
+db.setUpConnection();
 const app = express();
 
 app.use(bodyParser.json())
 
 app.get('/notes', (req, res) => {
-    res.send('2222'); 
+    db.listNotes().then((data) => res.send(data));
 });
 
 app.post('/notes', (req, res) => {
-    res.send('lolKEK'); 
+    db.createNote(req.body).then((data) => res.send(data));
 });
 
 app.delete('/notes/:id', (req, res) => {
-    res.send('lolKEK'); 
+    db.deleteNote(req.params.id).then((data) => res.send(data));
 });
 
 const server = app.listen(8080, () => {
-    console.log('run server');
+    console.log('runing server port 8080');
 });
