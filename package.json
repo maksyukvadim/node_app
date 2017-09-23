@@ -7,15 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "transp": "babel server -d dist_serv --presets es2015",
     "transp_watch": "babel server -d dist_serv --presets es2015 --watch",
-    "watch_serv": "nodemon dist_serv/index.js",    
-    "server": "npm run transp && npm run watch_serv | npm run transp_watch"
+    "watch_serv": "nodemon dist_serv/index.js",
+    "dev_server": "npm run transp && npm run watch_serv | npm run transp_watch",
+    "dev_client": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build_client": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "author": "",
+  "author": "Vadym Maksyuk <maksyukvadim@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
-    "mongoose": "^4.11.12"
+    "mongoose": "^4.11.12",
+    "vue": "^2.3.3"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -23,6 +26,17 @@
     "babel-core": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "babel-loader": "^6.0.0",
+    "babel-preset-env": "^1.5.1",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "vue-loader": "^12.1.0",
+    "vue-template-compiler": "^2.3.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }
